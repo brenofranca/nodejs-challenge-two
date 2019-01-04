@@ -11,13 +11,14 @@ const UserController = require('../controllers/UserController')
 const SessionController = require('../controllers/SessionController')
 
 router.get('/', guestMiddleware, SessionController.create)
+router.post('/signin', guestMiddleware, SessionController.store)
 
 router.get('/signup', guestMiddleware, UserController.create)
 router.post('/signup', upload.single('avatar'), UserController.store)
-router.post('/signin', guestMiddleware, SessionController.store)
 
 router.use('/app', authMiddleware)
 
 router.get('/app/dashboard', (req, res) => res.render('dashboard'))
+router.get('/app/signout', SessionController.destroy)
 
 module.exports = router

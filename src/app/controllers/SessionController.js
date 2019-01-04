@@ -1,6 +1,6 @@
 const { User } = require('../models')
 
-class UserController {
+class SessionController {
   create (req, res) {
     return res.render('auth/signin')
   }
@@ -24,6 +24,13 @@ class UserController {
 
     return res.redirect('/app/dashboard')
   }
+
+  destroy (req, res) {
+    req.session.destroy(() => {
+      res.clearCookie('root')
+      return res.redirect('/')
+    })
+  }
 }
 
-module.exports = new UserController()
+module.exports = new SessionController()
