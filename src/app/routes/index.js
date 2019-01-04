@@ -10,6 +10,8 @@ const guestMiddleware = require('../middlewares/guest')
 const UserController = require('../controllers/UserController')
 const SessionController = require('../controllers/SessionController')
 const DashboardController = require('../controllers/DashboardController')
+const AppointmentsController = require('../controllers/AppointmentsController')
+const AvailableController = require('../controllers/AvailableController')
 const FileController = require('../controllers/FileController')
 
 router.use((req, res, next) => {
@@ -31,5 +33,8 @@ router.get('/app/files/:file', FileController.show)
 
 router.get('/app/dashboard', DashboardController.index)
 router.get('/app/signout', SessionController.destroy)
+
+router.get('/app/appointments/new/:provider', AppointmentsController.create)
+router.get('/app/available/:provider', AvailableController.index)
 
 module.exports = router
