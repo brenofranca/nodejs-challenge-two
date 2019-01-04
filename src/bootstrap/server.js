@@ -4,6 +4,7 @@ const session = require('express-session')
 const FileStore = require('session-file-store')(session)
 const bodyParser = require('body-parser')
 const nunjucks = require('nunjucks')
+const flash = require('connect-flash')
 
 const routes = require('../app/routes/index')
 
@@ -25,6 +26,7 @@ class App {
   middlewares () {
     this.express.use(bodyParser.json())
     this.express.use(bodyParser.urlencoded({ extended: false }))
+    this.express.use(flash())
     this.express.use(
       session({
         name: 'root',
