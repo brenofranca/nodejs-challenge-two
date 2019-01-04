@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon -L app/index.js"
+    "start": "nodemon -L src/index.js"
   },
   "dependencies": {
     "express": "~4.9.0",
@@ -13,6 +13,7 @@
   "devDependencies": {
     "eslint": "^5.10.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "sequelize-cli": "^5.4.0"
   }
 }

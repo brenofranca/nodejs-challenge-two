@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const nunjucks = require("nunjucks");
 
-const routes = require("../routes/index");
+const routes = require("../app/routes/index");
 
 class App {
   constructor() {
@@ -27,7 +27,10 @@ class App {
   }
 
   views() {
-    this.express.set("views", path.join(__dirname, "../", "views"));
+    this.express.set(
+      "views",
+      path.join(__dirname, "../", "app", "resources", "views")
+    );
 
     nunjucks.configure(this.express.get("views"), {
       watch: this.isDEV,
@@ -39,7 +42,7 @@ class App {
   }
 
   routes() {
-    this.express.use("/", routes);
+    this.express.use(routes);
   }
 
   handlers() {

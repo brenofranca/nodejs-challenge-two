@@ -4,6 +4,8 @@ RUN mkdir /src
 
 RUN npm install nodemon -g
 RUN npm install eslint -g
+RUN npm install sequelize
+RUN npm install sequelize-cli
 
 WORKDIR /src
 
