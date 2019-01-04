@@ -11,10 +11,10 @@ const UserController = require('../controllers/UserController')
 const SessionController = require('../controllers/SessionController')
 
 router.use((req, res, next) => {
-  req.locals.flashError = req.flash('error')
-  req.locals.flashSuccess = req.flash('success')
+  res.locals.flashError = req.flash('error')
+  res.locals.flashSuccess = req.flash('success')
 
-  next()
+  return next()
 })
 
 router.get('/', guestMiddleware, SessionController.create)

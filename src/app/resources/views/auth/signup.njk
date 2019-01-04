@@ -2,6 +2,8 @@
 
 {% block body %}
   <form action="signup" method="post" enctype="multipart/form-data">
+    {% include "partials/flash_messages.njk" %}
+
     <label for="avatar">
       <img src="/images/avatar.svg" heigh="30" />
     </label>
