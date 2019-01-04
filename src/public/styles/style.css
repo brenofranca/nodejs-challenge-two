@@ -200,11 +200,23 @@ ul.providers {
   justify-content: space-between;
 }
 
+.profile div,
 .provider div {
   display: flex;
   align-items: center;
 }
 
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile * {
+  margin-bottom: 10px;
+}
+
+.profile img,
 .provider img {
   width: 48px;
   height: 48px;
