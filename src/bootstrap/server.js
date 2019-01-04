@@ -1,5 +1,6 @@
 const path = require('path')
 const express = require('express')
+const session = require('express-session')
 const bodyParser = require('body-parser')
 const nunjucks = require('nunjucks')
 
@@ -23,7 +24,13 @@ class App {
   middlewares () {
     this.express.use(bodyParser.json())
     this.express.use(bodyParser.urlencoded({ extended: false }))
-    this.express.use(express.static(path.join(__dirname, '../', 'public')))
+    this.express.use(
+      session({
+        secret: 'NodeChallenge2',
+        resave: false,
+        saveUninitialized: false
+      })
+    )
   }
 
   views () {
@@ -39,6 +46,7 @@ class App {
     })
 
     this.express.set('view engine', 'njk')
+    this.express.use(express.static(path.join(__dirname, '../', 'public')))
   }
 
   routes () {

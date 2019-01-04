@@ -9,6 +9,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "~1.8.1",
     "express": "~4.9.0",
+    "express-session": "^1.15.6",
     "multer": "^1.4.1",
     "nunjucks": "*",
     "pg": "^7.7.1",
