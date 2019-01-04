@@ -4,10 +4,10 @@ module.exports = {
   password: 'docker',
   database: 'bootcamp_challenge_2',
   host: '127.0.0.1',
-  operatorAlias: false,
+  operatorsAlias: false,
   define: {
     timestamps: true,
-    undescored: true,
-    undescoredAll: true
+    underscored: true,
+    underscoredAll: true
   }
 }
