@@ -14,6 +14,9 @@ router.post('/signup', upload.single('avatar'), UserController.store)
 
 router.post('/signin', SessionController.store)
 
-router.get('/app/dashboard', (req, res) => res.render('dashboard'))
+router.get('/app/dashboard', (req, res) => {
+  console.log(req.session.user)
+  return res.render('dashboard')
+})
 
 module.exports = router
