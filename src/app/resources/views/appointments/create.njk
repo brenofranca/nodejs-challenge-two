@@ -1,0 +1,43 @@
+{% extends "layouts/default.njk" %}
+
+{% block body %}
+  <div class="content">
+    <div class="profile">
+      <div>
+        <img src="/app/files/{{ user.avatar }}" class="img-rounded" />
+      </div>
+      <span><a href="/app/logout">Sair</a></span>
+      <strong>{{ user.name }}</strong><span>Agende seu horário:</span>
+    </div>
+
+    <div class="provider">
+      <div>
+        <img src="/app/files/{{ provider.avatar }}" class="img-rounded" />
+        <strong>{{ provider.name }}</strong>
+      </div>
+    </div>
+
+    <form action="/app/appointments/new/{{ provider.id }}" method="post">
+      {% include "partials/flash_messages.njk" %}
+      <input type="text" class="flatpickr" placeholder="Escolha uma data" />
+      <div id="hours">
+      </div>
+
+      <button type="submit">Agendar</button>
+    </form>
+  </div>
+
+  <script type="text/javascript">
+    flatpickr('.flatpickr', {
+      minDate: new Date(),
+      dateFormat: 'd/m/Y',
+      onChange: function (date) {
+        fetch(`/app/available/{{ provider.id }}?date=${date[0].getTime()}`).then(res => {
+          res.text().then(html => {
+            document.getElementById('hours').innerHTML = html;
+          })
+        })
+      }
+    })
+  </script>
+{% endblock %}
