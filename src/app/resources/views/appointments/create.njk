@@ -19,7 +19,7 @@
 
     <form action="/app/appointments/new/{{ provider.id }}" method="post">
       {% include "partials/flash_messages.njk" %}
-      <input id="date" name="date" type="text" class="flatpickr" placeholder="Escolha uma data" />
+      <input type="text" class="flatpickr" placeholder="Escolha uma data" />
       <div id="hours">
       </div>
 

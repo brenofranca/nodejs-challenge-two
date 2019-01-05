@@ -7,7 +7,7 @@ class AvailableController {
     const date = moment(parseInt(req.query.date))
     const appointments = await Appointment.findAll({
       where: {
-        provider_id: req.params.provider_id,
+        provider_id: req.params.provider,
         date: {
           [Op.between]: [
             date.startOf('day').format(),
@@ -43,7 +43,9 @@ class AvailableController {
         value: value.format(),
         available:
           value.isAfter(moment()) &&
-          !appointments.find(a => moment(a.date).format('HH:mm') === time)
+          !appointments.find(a => {
+            return moment(a.date).format('HH:mm') === time
+          })
       }
     })
     return res.render('available/index', { available })
