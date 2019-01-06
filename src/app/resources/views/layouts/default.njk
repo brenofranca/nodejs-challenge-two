@@ -5,7 +5,15 @@
 
   <body>
     <div class="main-wrapper">
-      {% block body %} {% endblock %}
+      <div class="content">
+        <div class="profile">
+          <div>
+            <img src="/app/files/{{ user.avatar }}" class="img-rounded" />
+          </div>
+          <strong>Olá, {{ user.name }}</strong>
+        </div>
+        {% block body %} {% endblock %}
+      </div>
     </div>
   </body>
 </html>

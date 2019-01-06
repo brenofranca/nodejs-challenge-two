@@ -302,3 +302,20 @@ ul.providers {
 .main-wrapper .content form button:hover {
   background: #634dac;
 }
+
+.appointment-detail {
+  display: flex;
+  align-items: initial !important;
+  flex-direction: column;
+  padding-left: 10px;
+}
+.appointment-detail > div {
+  display: flex;
+  align-items: baseline;
+}
+.appointment-detail span {
+  color: #666;
+}
+.appointment-detail strong {
+  margin-left: 10px;
+}

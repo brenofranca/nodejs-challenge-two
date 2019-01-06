@@ -1,13 +1,9 @@
 {% extends "layouts/default.njk" %}
 
 {% block body %}
-  <div class="content">
+  <div>
     <div class="profile">
-      <div>
-        <img src="/app/files/{{ user.avatar }}" class="img-rounded" />
-      </div>
-      <span><a href="/app/signout">Sair</a></span>
-      <strong>{{ user.name }}</strong><span>Agende seu horário:</span>
+      <p>Agende seu horário:</p>
     </div>
 
     <div class="provider">
