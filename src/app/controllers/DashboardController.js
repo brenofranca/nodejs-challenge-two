@@ -12,7 +12,7 @@ class DashboardController {
       return res.render('dashboard/clients', { providers })
     }
 
-    let appointments = await Appointment.findAll({
+    const appointments = await Appointment.findAll({
       where: {
         provider_id: user.id,
         date: {
@@ -29,8 +29,6 @@ class DashboardController {
         }
       ]
     })
-
-    console.log(appointments)
 
     return res.render('dashboard/providers', { appointments })
   }
